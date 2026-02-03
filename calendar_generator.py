@@ -1,66 +1,141 @@
 import datetime
 import math
 import calendar
+import sys
 
-HOLIDAYS = {
-    'January 1': ('New Year\'s Day', '🎉'),
-    'January 19': ('MLK Jr. Day', '🌟'),
-    'February 16': ('Presidents\' Day', '⭐'),
-    'April 3': ('Good Friday', '✝️'),
-    'May 25': ('Memorial Day', '🇺🇸'),
-    'June 19': ('Juneteenth', '🏳️‍🌈'),
-    'July 4': ('Independence Day', '🦅'),
-    'September 7': ('Labor Day', '💪'),
-    'October 12': ('Columbus Day', '🧭'),
-    'November 3': ('Election Day', '🗳️'),
-    'November 11': ('Veterans Day', '🎖️'),
-    'November 26': ('Thanksgiving', '🦃'),
-    'December 25': ('Christmas Day', '🎄'),
-    'October 31': ('Halloween', '🎃'),
-    'April 5': ('Easter', '🐇')
-}
+def get_holidays_for_year(year):
+    """Calculate all holidays for a given year"""
+    holidays = {}
+
+    # New Year's Day
+    holidays['January 1'] = ('New Year\'s Day', '🎉')
+
+    # MLK Jr. Day - Third Monday in January
+    jan1 = datetime.date(year, 1, 1)
+    for day in range(1, 32):
+        if jan1.replace(day=day).weekday() == 0:  # Monday
+            holidays[f'January {day}'] = ('MLK Jr. Day', '🌟')
+            break
+
+    # Presidents' Day - Third Monday in February
+    feb1 = datetime.date(year, 2, 1)
+    for day in range(1, 30):
+        if feb1.replace(day=day).weekday() == 0:  # Monday
+            holidays[f'February {day}'] = ('Presidents\' Day', '⭐')
+            break
+
+    # Good Friday - Friday before Easter
+    easter = calculate_easter(year)
+    good_friday = easter - datetime.timedelta(days=2)
+    holidays[good_friday.strftime('%B %d')] = ('Good Friday', '✝️')
+
+    # Memorial Day - Last Monday in May
+    may31 = datetime.date(year, 5, 31)
+    for day in reversed(range(25, 32)):
+        if may31.replace(day=day).weekday() == 0:  # Monday
+            holidays[f'May {day}'] = ('Memorial Day', '🇺🇸')
+            break
+
+    # Juneteenth
+    holidays['June 19'] = ('Juneteenth', '🏳️‍🌈')
+
+    # Independence Day
+    holidays['July 4'] = ('Independence Day', '🦅')
+
+    # Labor Day - First Monday in September
+    sep1 = datetime.date(year, 9, 1)
+    for day in range(1, 30):
+        if sep1.replace(day=day).weekday() == 0:  # Monday
+            holidays[f'September {day}'] = ('Labor Day', '💪')
+            break
+
+    # Columbus Day - Second Monday in October
+    oct1 = datetime.date(year, 10, 1)
+    for day in range(1, 32):
+        if oct1.replace(day=day).weekday() == 0:  # Monday
+            holidays[f'October {day}'] = ('Columbus Day', '🧭')
+            # Skip if after the proper Columbus Day
+            if day > 8:
+                del holidays[f'October {day}']
+                break
+
+    # Election Day - Tuesday after first Monday in November
+    nov1 = datetime.date(year, 11, 1)
+    for day in range(3, 30):
+        if nov1.replace(day=day).weekday() == 1:  # Tuesday
+            holidays[f'November {day}'] = ('Election Day', '🗳️')
+            break
+
+    # Veterans Day
+    holidays['November 11'] = ('Veterans Day', '🎖️')
+
+    # Thanksgiving - Fourth Thursday of November
+    for day in range(1, 31):
+        if datetime.date(year, 11, day).weekday() == 3:  # Thursday
+            thanksgiving_count = sum(1 for d in range(1, day+1) if datetime.date(year, 11, d).weekday() == 3)
+            if thanksgiving_count == 4:
+                holidays[f'November {day}'] = ('Thanksgiving', '🦃')
+                break
+
+    # Christmas Day
+    holidays['December 25'] = ('Christmas Day', '🎄')
+
+    # Halloween
+    holidays['October 31'] = ('Halloween', '🎃')
+
+    # Easter
+    easter = calculate_easter(year)
+    holidays[easter.strftime('%B %d')] = ('Easter', '🐇')
+
+    return holidays
+
+def calculate_easter(year):
+    """Calculates the date of Easter for a given year using the Anonymous Gregorian algorithm"""
+    a = year % 19
+    b = year // 100
+    c = year % 100
+    d = b // 4
+    e = b % 4
+    f = (b + 8) // 25
+    g = (b - f + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i = c // 4
+    k = c % 4
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    month = (h + l - 7 * m + 114) // 31
+    day = ((h + l - 7 * m + 114) % 31) + 1
+    return datetime.date(year, month, day)
 
 class CalendarGenerator:
     def __init__(self, year):
         self.year = year
         self.months = self._initialize_months()
-
+        self.holidays = get_holidays_for_year(year)
     def _initialize_months(self):
         months = {}
         for month in range(1, 13):
-            # Get first day of month and days in month
             first_day = datetime.date(self.year, month, 1)
 
-            # Get days in month using calendar module
             days_in_month = calendar.monthrange(self.year, month)[1]
-            
-            # Calculate starting weekday for display (Sunday=0, Saturday=6)
-            # Python's weekday() returns Monday=0, Tuesday=1, ..., Sunday=6
-            # For display we want Sunday=0, Monday=1, ..., Saturday=6
-            # Convert using: display_index = (python_weekday + 1) % 7 for Sunday=0, Saturday=6
-            # Python's weekday() returns Monday=0, Tuesday=1, ..., Sunday=6
-            # Display wants Sunday=0, Monday=1, Saturday=6
-            # Conversion: display = (python + 1) % 7
+
             start_weekday_display = (first_day.weekday() + 1) % 7
 
-            # Calculate how many cells needed for the grid
             total_cells = days_in_month + (7 - start_weekday_display) % 7
-            
-            # Determine how many weeks we need
+
             weeks_needed = math.ceil(total_cells / 7)
-            
+
             months[month] = {
                 'name': first_day.strftime('%B'),
                 'days_in_month': days_in_month,
                 'start_weekday': start_weekday_display,
-                'weeks_needed': weeks_needed,
-                'holidays': self._get_holidays_for_month(month)
+                'weeks_needed': weeks_needed
             }
         return months
 
-    def _get_holidays_for_month(self, month):
+    def get_holidays_for_month(self, month):
         holidays = []
-        for date_str, (name, emoji) in HOLIDAYS.items():
+        for date_str, (name, emoji) in self.holidays.items():
             month_name, day_str = date_str.rsplit(' ', 1)
             month_num = datetime.datetime.strptime(month_name, '%B').month
             day_num = int(day_str)
@@ -80,7 +155,7 @@ class CalendarGenerator:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 Calendar</title>
+    <title>%s Calendar</title>
     <style>
         * {
             margin: 0;
@@ -202,7 +277,7 @@ class CalendarGenerator:
 </head>
 <body>
     <div class="container'>
-"""
+""" % self.year
 
         for month_num, month_data in self.months.items():
             html += f"""
@@ -218,16 +293,12 @@ class CalendarGenerator:
                 <div class="weekday-label">Sat</div>
 """
 
-            # Calculate offset days
             offset_days = month_data['start_weekday']
 
-            # Add empty cells for offset
             html += "                <div class='day-cell empty' style='visibility:hidden'></div>\n" * month_data['start_weekday']
 
-            # Calculate starting point for days
             total_days = 0
 
-            # Add days to calendar
             for day in range(1, month_data['days_in_month'] + 1):
                 total_days += 1
                 html += "                <div class='day-cell'>\n"
@@ -235,17 +306,15 @@ class CalendarGenerator:
                 html += "                    <div class='day-content'>\n"
                 html += "                    </div>\n"
 
-                # Check for holidays (move below day-content)
-                for holiday in month_data['holidays']:
+                for holiday in self.get_holidays_for_month(month_num):
                     if holiday['day'] == day:
-                        if holiday['full_date'] in ['October 31', 'April 5']:
+                        if holiday['full_date'] in ['October 31', 'April 5', 'March 29']:
                             html += f"                    <div class='holiday-box holiday-{holiday['full_date'].lower().replace(' ', '-')}'>{holiday['emoji']} <span class='holiday-emoji'>{holiday['name']}</span></div>\n"
                         else:
                             html += f"                    <div class='holiday-box'>{holiday['emoji']} <span class='holiday-emoji'>{holiday['name']}</span></div>\n"
 
                 html += "                </div>\n"
 
-            # Add remaining empty cells to complete the grid
             remaining_cells = (7 * month_data['weeks_needed']) - total_days
             html += "                <div class='day-cell empty' style='visibility:hidden'></div>\n" * remaining_cells
 
@@ -261,11 +330,29 @@ class CalendarGenerator:
         return html
 
 def generate_calendars():
-    generator = CalendarGenerator(2026)
+    import sys
+    if len(sys.argv) < 2:
+        print("Usage: python3 calendar_generator.py [year]")
+        print("Example: python3 calendar_generator.py 2026")
+        sys.exit(1)
+
+    try:
+        year = int(sys.argv[1])
+        if year < 1 or year > 9999:
+            print("Year must be between 1 and 9999")
+            sys.exit(1)
+    except ValueError:
+        print("Please provide a valid year number")
+        sys.exit(1)
+
+    generator = CalendarGenerator(year)
+    filename = f"calendar_{year}.html"
     html = generator.generate_html()
     
-    with open('calendar_2026.html', 'w') as f:
+    with open(filename, 'w') as f:
         f.write(html)
+
+    print(f"Calendar generated successfully: {filename}")
 
 if __name__ == '__main__':
     generate_calendars()
