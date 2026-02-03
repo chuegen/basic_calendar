@@ -233,16 +233,16 @@ class CalendarGenerator:
                 html += "                <div class='day-cell'>\n"
                 html += f"                    <div class='day-number'>{day}</div>\n"
                 html += "                    <div class='day-content'>\n"
+                html += "                    </div>\n"
 
-                # Check for holidays
+                # Check for holidays (move below day-content)
                 for holiday in month_data['holidays']:
                     if holiday['day'] == day:
-                        if holiday['full_date'] in ['October 31', 'March 29']:
+                        if holiday['full_date'] in ['October 31', 'April 5']:
                             html += f"                    <div class='holiday-box holiday-{holiday['full_date'].lower().replace(' ', '-')}'>{holiday['emoji']} <span class='holiday-emoji'>{holiday['name']}</span></div>\n"
                         else:
                             html += f"                    <div class='holiday-box'>{holiday['emoji']} <span class='holiday-emoji'>{holiday['name']}</span></div>\n"
 
-                html += "                    </div>\n"
                 html += "                </div>\n"
 
             # Add remaining empty cells to complete the grid
