@@ -12,17 +12,23 @@ def get_holidays_for_year(year):
 
     # MLK Jr. Day - Third Monday in January
     jan1 = datetime.date(year, 1, 1)
+    monday_count = 0
     for day in range(1, 32):
         if jan1.replace(day=day).weekday() == 0:  # Monday
-            holidays[f'January {day}'] = ('MLK Jr. Day', '🌟')
-            break
+            monday_count += 1
+            if monday_count == 3:
+                holidays[f'January {day}'] = ('MLK Jr. Day', '🌟')
+                break
 
     # Presidents' Day - Third Monday in February
     feb1 = datetime.date(year, 2, 1)
+    monday_count = 0
     for day in range(1, 30):
         if feb1.replace(day=day).weekday() == 0:  # Monday
-            holidays[f'February {day}'] = ('Presidents\' Day', '⭐')
-            break
+            monday_count += 1
+            if monday_count == 3:
+                holidays[f'February {day}'] = ('Presidents\' Day', '⭐')
+                break
 
     # Good Friday - Friday before Easter
     easter = calculate_easter(year)
@@ -51,12 +57,12 @@ def get_holidays_for_year(year):
 
     # Columbus Day - Second Monday in October
     oct1 = datetime.date(year, 10, 1)
+    monday_count = 0
     for day in range(1, 32):
         if oct1.replace(day=day).weekday() == 0:  # Monday
-            holidays[f'October {day}'] = ('Columbus Day', '🧭')
-            # Skip if after the proper Columbus Day
-            if day > 8:
-                del holidays[f'October {day}']
+            monday_count += 1
+            if monday_count == 2:
+                holidays[f'October {day}'] = ('Columbus Day', '🧭')
                 break
 
     # Election Day - Tuesday after first Monday in November
