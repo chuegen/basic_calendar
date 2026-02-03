@@ -2,20 +2,23 @@
 
 A Python web application that generates a comprehensive HTML calendar for the year 2026 with all major US holidays, proper weekday display, and printing support.
 
-## Features
+**Version 1.0** - Initial Release
 
-- **Full Year Display**: Shows all 12 months from January to December in a vertically scrolling layout
-- **Traditional Layout**: Sunday is displayed on the left, Saturday on the right
-- **Uniform Day Cells**: Each day's cell is sized appropriately (100px minimum, 180px when printed) for writing notes
-- **Holiday Markers**: Top 15 US holidays are highlighted with emojis and italicized names in their respective day cells
-- **Special Styling**: Halloween and Easter have special background colors to distinguish them
-- **Print Optimized**: Includes CSS for automatic page breaks and blue borders on printed days
-- **Responsive Design**: Works on various screen sizes while maintaining the calendar's visual integrity
+## Release Notes (v1.0)
+
+### Current Features
+- ✅ Full Year Display: Shows all 12 months from January to December in a vertically scrolling layout
+ - ✅ Traditional Layout: Sunday is displayed on the left, Saturday on the right
+- ✅ Uniform Day Cells: Each day's cell is sized appropriately (100px minimum, 180px when printed) for writing notes
+- ✅ Holiday Markers: Top 15 US holidays are highlighted with emojis and italicized names in their respective day cells
+- ✅ Special Styling: Halloween and Easter have special background colors to distinguish them
+- ✅ Print Optimized: Includes CSS for automatic page breaks and blue borders on printed days
+- ✅ Responsive Design: Works on various screen sizes while maintaining the calendar's visual integrity
 
 ## Supported Holidays
 
 1. New Year's Day (January 1) - 🎉
-2. MLK Day (January 20) - 🌟
+2. MLK Jr. Day (January 19) - 🌟
 3. Presidents' Day (February 16) - ⭐
 4. Good Friday (April 3) - ✝️
 5. Memorial Day (May 25) - 🇺🇸
@@ -28,7 +31,7 @@ A Python web application that generates a comprehensive HTML calendar for the ye
 12. Thanksgiving (November 26) - 🦃
 13. Christmas Day (December 25) - 🎄
 14. Halloween (October 31) - 🎃
-15. Easter (March 29) - 🐇
+15. Easter (April 5) - 🐇
 
 ## Requirements
 
