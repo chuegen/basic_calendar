@@ -4,7 +4,7 @@ import calendar
 
 HOLIDAYS = {
     'January 1': ('New Year\'s Day', '🎉'),
-    'January 20': ('MLK Day', '🌟'),
+    'January 19': ('MLK Jr. Day', '🌟'),
     'February 16': ('Presidents\' Day', '⭐'),
     'April 3': ('Good Friday', '✝️'),
     'May 25': ('Memorial Day', '🇺🇸'),
