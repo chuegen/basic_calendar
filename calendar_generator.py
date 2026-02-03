@@ -17,7 +17,7 @@ HOLIDAYS = {
     'November 26': ('Thanksgiving', '🦃'),
     'December 25': ('Christmas Day', '🎄'),
     'October 31': ('Halloween', '🎃'),
-    'March 29': ('Easter', '🐇')
+    'April 5': ('Easter', '🐇')
 }
 
 class CalendarGenerator:
