@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2028 Calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .month-section {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .month-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+        }
+
+        .weekday-label {
+            background-color: #e0e0e0;
+            padding: 8px 4px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .day-cell {
+            background-color: white;
+            border: 1px solid #ddd;
+            min-height: 100px;
+            padding: 4px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day-number {
+            font-size: 12px;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .day-content {
+            flex: 1;
+            font-size: 10px;
+        }
+
+        .holiday-box {
+            margin: 4px 0;
+            padding: 4px;
+            background-color: #fff3e0;
+            border-radius: 2px;
+            font-style: italic;
+            font-size: 10px;
+            overflow: hidden;
+        }
+
+        .halloween-box {
+            background-color: #ffcdd2;
+        }
+
+        .easter-box {
+            background-color: #c8e6c9;
+        }
+
+        .holiday-emoji {
+            margin-right: 4px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+            }
+
+            .container {
+                max-width: none;
+            }
+
+            .month-section {
+                page-break-before: always;
+                box-shadow: none;
+            }
+
+            .calendar-grid {
+                display: grid;
+            }
+
+            .day-cell {
+                min-height: 180px;
+                border: 1px solid #00f;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container'>
+
+        <div class="month-section">
+            <h2 class="month-title">January 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🎉 <span class='holiday-emoji'>New Year's Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🌟 <span class='holiday-emoji'>MLK Jr. Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>31</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">February 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>⭐ <span class='holiday-emoji'>Presidents' Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">March 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>31</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">April 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>✝️ <span class='holiday-emoji'>Good Friday</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🐇 <span class='holiday-emoji'>Easter</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">May 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🇺🇸 <span class='holiday-emoji'>Memorial Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>31</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">June 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🏳️‍🌈 <span class='holiday-emoji'>Juneteenth</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">July 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🦅 <span class='holiday-emoji'>Independence Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>31</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">August 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>31</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">September 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>💪 <span class='holiday-emoji'>Labor Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">October 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🧭 <span class='holiday-emoji'>Columbus Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>31</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box holiday-october-31'>🎃 <span class='holiday-emoji'>Halloween</span></div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">November 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🗳️ <span class='holiday-emoji'>Election Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🎖️ <span class='holiday-emoji'>Veterans Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🦃 <span class='holiday-emoji'>Thanksgiving</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">December 2028</h2>
+            <div class="calendar-grid">
+                <div class="weekday-label">Sun</div>
+                <div class="weekday-label">Mon</div>
+                <div class="weekday-label">Tue</div>
+                <div class="weekday-label">Wed</div>
+                <div class="weekday-label">Thu</div>
+                <div class="weekday-label">Fri</div>
+                <div class="weekday-label">Sat</div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell'>
+                    <div class='day-number'>1</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>2</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>3</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>4</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>5</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>6</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>7</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>8</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>9</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>10</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>11</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>12</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>13</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>14</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>15</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>16</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>17</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>18</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>19</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>20</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>21</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>22</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>23</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>24</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>25</div>
+                    <div class='day-content'>
+                    </div>
+                    <div class='holiday-box'>🎄 <span class='holiday-emoji'>Christmas Day</span></div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>26</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>27</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>28</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>29</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>30</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell'>
+                    <div class='day-number'>31</div>
+                    <div class='day-content'>
+                    </div>
+                </div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+                <div class='day-cell empty' style='visibility:hidden'></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
