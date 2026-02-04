@@ -1,37 +1,63 @@
-# 2026 Calendar Generator
+# Calendar Generator
 
-A Python web application that generates a comprehensive HTML calendar for the year 2026 with all major US holidays, proper weekday display, and printing support.
+A Python web application that generates comprehensive HTML calendars for any year with all major US holidays, proper weekday display, and printing support.
 
-**Version 1.0** - Initial Release
+**Version 2.0** - Dynamic Year Support
 
-## Release Notes (v1.0)
+## Release Notes (v2.0)
+
+### New Features
+- ✅ **Dynamic Year Support**: Generate calendars for any year (1-9999) from the command line
+- ✅ **Automated Holiday Calculation**: All holidays are calculated dynamically based on year, eliminating hard-coded dates
+- ✅ **Week-Based Holiday Logic**: Properly calculates holidays based on specific weekday positions (first/second/third/fourth Monday, second Tuesday, last Monday, etc.)
 
 ### Current Features
 - ✅ Full Year Display: Shows all 12 months from January to December in a vertically scrolling layout
- - ✅ Traditional Layout: Sunday is displayed on the left, Saturday on the right
+- ✅ Traditional Layout: Sunday is displayed on the left, Saturday on the right
 - ✅ Uniform Day Cells: Each day's cell is sized appropriately (100px minimum, 180px when printed) for writing notes
 - ✅ Holiday Markers: Top 15 US holidays are highlighted with emojis and italicized names in their respective day cells
 - ✅ Special Styling: Halloween and Easter have special background colors to distinguish them
 - ✅ Print Optimized: Includes CSS for automatic page breaks and blue borders on printed days
 - ✅ Responsive Design: Works on various screen sizes while maintaining the calendar's visual integrity
 
+## Usage
+
+### Command Line Arguments
+
+```bash
+python3 calendar_generator.py [year]
+```
+
+### Examples
+
+```bash
+# Generate calendar for 2026
+python3 calendar_generator.py 2026
+
+# Generate calendar for 2028
+python3 calendar_generator.py 2028
+
+# Generate calendar for any year (1-9999)
+python3 calendar_generator.py 2050
+```
+
 ## Supported Holidays
 
-1. New Year's Day (January 1) - 🎉
-2. MLK Jr. Day (January 19) - 🌟
-3. Presidents' Day (February 16) - ⭐
-4. Good Friday (April 3) - ✝️
-5. Memorial Day (May 25) - 🇺🇸
-6. Juneteenth (June 19) - 🏳️‍🌈
-7. Independence Day (July 4) - 🦅
-8. Labor Day (September 7) - 💪
-9. Columbus Day (October 12) - 🧭
-10. Election Day (November 3) - 🗳️
-11. Veterans Day (November 11) - 🎖️
-12. Thanksgiving (November 26) - 🦃
-13. Christmas Day (December 25) - 🎄
-14. Halloween (October 31) - 🎃
-15. Easter (April 5) - 🐇
+1. New Year's Day - January 1 - 🎉
+2. MLK Jr. Day - Third Monday in January - 🌟
+3. Presidents' Day - Third Monday in February - ⭐
+4. Good Friday - Friday before Easter - ✝️
+5. Memorial Day - Last Monday in May - 🇺🇸
+6. Juneteenth - June 19 - 🏳️‍🌈
+7. Independence Day - July 4 - 🦅
+8. Labor Day - First Monday in September - 💪
+9. Columbus Day - Second Monday in October - 🧭
+10. Election Day - Tuesday after first Monday in November - 🗳️
+11. Veterans Day - November 11 - 🎖️
+12. Thanksgiving - Fourth Thursday in November - 🦃
+13. Christmas Day - December 25 - 🎄
+14. Halloween - October 31 - 🎃
+15. Easter - Variable date (calculated using Anonymous Gregorian algorithm) - 🐇
 
 ## Requirements
 
@@ -47,17 +73,23 @@ cd basic_calendar
 
 ## Usage
 
-1. Run the calendar generator:
+### Basic Usage
+Run the calendar generator with a specific year:
+
 ```bash
-python3 calendar_generator.py
+python3 calendar_generator.py 2026
 ```
 
-2. Open the generated HTML file in a web browser:
-```bash
-open calendar_2026.html
-```
+### All Available Years
+The script supports years from 1-9999. It will automatically calculate all holidays for the specified year.
 
-Or simply double-click `calendar_2026.html` in your file manager.
+### Output
+After running the script, it generates an HTML file named `calendar_[year].html` in the current directory. Open this file in any web browser to view the calendar.
+
+Example outputs:
+- `calendar_2026.html` - Traditional calendar for 2026
+- `calendar_2028.html` - Traditional calendar for 2028
+- `calendar_2050.html` - Traditional calendar for year 2050
 
 ## How It Works
 
